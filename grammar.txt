@@ -1,6 +1,11 @@
-* : zero or more of them
+#symbols used here :-
 
+* : zero or more of them
+? : optional
 | : or
+
+
+#grammar rules :-
 
 expr : KEYWORD:VAR IDENTIFIER EQ expr
      : comp-expr ((KEYWORD:AND|KEYWORD:OR) comp-expr)*
@@ -20,3 +25,8 @@ power  : atom (POW factor)*
 
 atom   : INT|FLOAT | IDENTIFIER
        : LPAREN expr RPAREN
+       : if-expr
+
+if-expr : KEYWORD:IF expr KEYWORD:THEN expr
+          (KEYWORD:ELIF expr KEYWORD:THEN expr)*
+          (KEYWORD: ELSE expr)?
