@@ -3,9 +3,15 @@
 | : or
 
 expr : KEYWORD:VAR IDENTIFIER EQ expr
-     : term ((PLUS|MINUS) term)*
+     : comp-expr ((KEYWORD:AND|KEYWORD:OR) comp-expr)*
+     
+     
+comp-expr : NOT comp-expr
+          : arith-expr ((EE|LT|GT|LTE|GTE) arith-expr)* #comparission expression
+     
+arith-expr : term ((PLUS|MINUS) term)*   #arithmetic expressopm
 
-term : factor ((MUL|DIV) factor)*
+term   : factor ((MUL|DIV) factor)*
 
 factor : (PLUS|MINUS) factor
        : power
