@@ -5,7 +5,7 @@
 | : or
 
 
-#grammar rules :-
+#grammar rules for silly:-
 
 expr : KEYWORD:VAR IDENTIFIER EQ expr
      : comp-expr ((KEYWORD:AND|KEYWORD:OR) comp-expr)*
