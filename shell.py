@@ -1,7 +1,7 @@
-import silly
+import basic
 
 while True:
-    text = input('silly >> ')
+    text = input('basic >> ')
     if text.strip() == "": continue
     result, error = silly.run('<stdin>', text)
 
