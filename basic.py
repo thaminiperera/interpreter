@@ -72,6 +72,7 @@ class RTError(Error):
         return 'Traceback (most recent call last):\n' + result
 
 
+
 ##############################
 # POSITION - Keep track of line, col and current index
 ##############################
@@ -96,6 +97,7 @@ class Position:
 
     def copy(self):
         return Position(self.idx, self.ln, self.col, self.fn, self.ftxt)
+
 ##############################
 # TOKENS
 ##############################

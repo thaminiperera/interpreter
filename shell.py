@@ -3,7 +3,7 @@ import basic
 while True:
     text = input('basic >> ')
     if text.strip() == "": continue
-    result, error = silly.run('<stdin>', text)
+    result, error = basic.run('<stdin>', text)
 
     if error: print(error.as_string())
     elif result:
