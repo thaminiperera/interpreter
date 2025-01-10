@@ -1,47 +1,102 @@
-This is a simple interpreter built for the BASIC programming language using Python
+# BASIC-Inspired Language Interpreter
 
-Deno : https://tdp-interpreter.netlify.app/
+## Introduction
+This interpreter executes code written in a BASIC-inspired programming language using Python. 
 
-# The Interpreter
-This interpreter processes and executes code in a structured, modular manner, offering a streamlined implementation of a BASIC-inspired language. Designed with clarity, maintainability, and extensibility in mind, the interpreter is built to provide an interactive and robust programming experience. Its modular components include tokenization, parsing, execution, and error handling, ensuring seamless interpretation of user-written code.
+Interactive Demo: https://tdp-interpreter.netlify.app/
 
-The language features built-in functions such as PRINT() and FUN() for practical use, while its error handling capabilities offer detailed feedback for syntax and runtime errors. The interpreter is suitable for exploring the mechanics of programming languages and serves as a foundation for further enhancements and extensions.
+## The Interpreter
+The interpreter processes and executes user-written code in a structured, modular manner. It features components like tokenization, parsing, execution, and error handling. The language includes built-in functions, such as PRINT() and FUN(), for practical use and serves as a foundation for building more complex features.
 
-## 1. Tokenization (Lexer)
-The interpreter begins by converting the source code into manageable tokens that represent keywords, operators, literals, and other elements. Key features of the lexer include:
+### Key Features:
+Tokenization (Lexer)
+Parsing (Abstract Syntax Tree)
+Execution via Visitor Pattern
+Built-in Functions (e.g., PRINT(), FUN())
+Robust Error Handling
 
-- Position Tracking: Tracks line, column, and index for accurate error reporting.
+### 1. Tokenization (Lexer)
+The lexer converts the source code into tokens, which represent keywords, operators, literals, and other elements. Key features include:
 
-- Token Types: Recognizes token types like integers, floats, strings, and keywords.
-
-- Error Handling: Identifies and rejects illegal characters early.
-
-- Whitespace & Comments: Skips over comments and spaces without affecting parsing.
-
-## 2. Parsing (Abstract Syntax Tree)
+- Position Tracking: Tracks the line, column, and index to provide accurate error reporting.
+- Token Types: Recognizes integers, floats, strings, and keywords.
+- Whitespace & Comments: Skips comments and unnecessary spaces.
+- Error Handling: Rejects illegal characters early for clear debugging.
+  
+### 2. Parsing (Abstract Syntax Tree)
 After tokenization, the parser organizes tokens into an Abstract Syntax Tree (AST), representing language constructs like expressions, variables, and control flows.
 
-- Recursive Descent Parsing: A modular approach to parsing syntax rules.
+- Recursive Descent Parsing: Modular approach to parsing grammar rules.
+- Error Handling: Identifies mismatched tokens or invalid syntax early.
 
-- Error Handling: Detects invalid syntax and mismatched tokens early.
+### 3. Execution
+Once the AST is built, the interpreter executes it using a visitor pattern:
 
-## 3. Execution
-The AST is executed through a visitor pattern, where specific methods handle operations like arithmetic, variable management, and control flow.
+- Symbol Table & Contexts: Manages variable scopes and resolves names.
+- Value Class: Handles data types uniformly, enabling polymorphism.
+- Control Flow: Supports if, for, while, and function calls.
 
-- Symbol Table & Contexts: Manages variable scopes and resolves names accurately.
+### 4. Built-In Functions
+The interpreter includes essential built-in functions such as:
 
-- Value Class: Handles data types uniformly with polymorphism.
+- PRINT(): Outputs text or values to the console.
+- FUN(): Defines user-created functions.
+- 
+The BaseFunction Class supports both user-defined and built-in operations, ensuring smooth function management.
 
-- Control Flow: Supports constructs like if, for, while, and function calls.
+### 5. Error Handling
+Error handling ensures clear, descriptive feedback:
 
-## 4. Built-In Functions
-The interpreter includes utility functions such as print() and input(), enhancing usability.
+- Tracebacks: Provides detailed error messages, including the exact line and position where the error occurred.
+- Runtime Errors: Reports issues like undefined variables or type mismatches.
 
-- BaseFunction Class: Supports both user-defined and built-in operations.
+## How to Clone and Run the Interpreter
 
-## 5. Error Handling
-Robust error handling ensures clear and descriptive feedback:
+### 1. Prerequisites
+Ensure you have Python 3.7 or later installed on your machine. If you don't have Python, download it from the official website: https://www.python.org/downloads/
 
-- Tracebacks: Detailed error messages, including the problematic line and position.
+### 2. Clone the Repository
+To get a copy of the interpreter repository, run the following command in your terminal:
 
-- Runtime Errors: Catches and reports issues like undefined variables or type mismatches.
+bash
+  git clone https://github.com/thaminiperera/interpreter.git
+
+
+### 3. Install Dependencies
+Navigate to the project directory:
+
+bash
+cd interpreter
+
+Install the required dependencies using pip:
+
+bash
+pip install -r requirements.txt
+
+### 4. Run the Python Shell
+After the dependencies are installed, you can run the interpreter in your terminal. In the terminal, simply run:
+
+bash
+python shell.py
+
+This will start the BASIC-inspired interpreter, allowing you to enter and execute BASIC code directly.
+
+### 5. Using the Interpreter
+Once the interpreter is running, you can enter your code in the prompt. For example, to print "Hello, World!", you can enter:
+
+bash
+PRINT("Hello, World!")
+
+The interpreter will process and execute the code, returning the output to the console.
+
+### 6. Example Usage
+To define and call a function in the language:
+
+bash
+FUN add(x, y)
+	RETURN x + y
+END
+
+PRINT(add(5, 10))
+
+This will print 15, the result of the addition.
