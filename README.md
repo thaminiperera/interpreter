@@ -58,45 +58,50 @@ Ensure you have Python 3.7 or later installed on your machine. If you don't have
 ### 2. Clone the Repository
 To get a copy of the interpreter repository, run the following command in your terminal:
 
-bash
-  git clone https://github.com/thaminiperera/interpreter.git
-
+```bash
+git clone https://github.com/thaminiperera/interpreter.git
+```
 
 ### 3. Install Dependencies
 Navigate to the project directory:
 
-bash
+```bash
 cd interpreter
+```
 
 Install the required dependencies using pip:
 
-bash
+```bash
 pip install -r requirements.txt
+```
 
 ### 4. Run the Python Shell
 After the dependencies are installed, you can run the interpreter in your terminal. In the terminal, simply run:
 
-bash
+```bash
 python shell.py
+```
 
 This will start the BASIC-inspired interpreter, allowing you to enter and execute BASIC code directly.
 
 ### 5. Using the Interpreter
 Once the interpreter is running, you can enter your code in the prompt. For example, to print "Hello, World!", you can enter:
 
-bash
+```bash
 PRINT("Hello, World!")
+```
 
 The interpreter will process and execute the code, returning the output to the console.
 
 ### 6. Example Usage
 To define and call a function in the language:
 
-bash
+```bash
 FUN add(x, y)
 	RETURN x + y
 END
 
 PRINT(add(5, 10))
+```
 
 This will print 15, the result of the addition.
